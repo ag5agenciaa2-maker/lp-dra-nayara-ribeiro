@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffmpeg -version)",
+      "Bash(where ffmpeg *)",
+      "Bash(where ffprobe *)",
+      "Read(//c/Program Files/**)",
+      "Read(//c//**)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\" | Where-Object { $_.Extension -match \"mp4|MP4\" } | Select-Object Name | Format-List)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\" | Where-Object { $_.Name -match \"SA\" } | ForEach-Object { $_.Name })",
+      "Bash(cmd.exe /c 'dir /x \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\\\\SAVEGR~1.MP4\"')",
+      "Bash(cmd.exe /c 'dir /x \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\\\\SAVEGR~2.MP4\"')",
+      "PowerShell($path = \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\"; cmd /c \"dir /x `\"$path`\"\" 2>&1)",
+      "Bash(start \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\index.html\")"
+    ]
+  }
+}
