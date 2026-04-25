@@ -11,7 +11,8 @@
       "Bash(cmd.exe /c 'dir /x \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\\\\SAVEGR~1.MP4\"')",
       "Bash(cmd.exe /c 'dir /x \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\\\\SAVEGR~2.MP4\"')",
       "PowerShell($path = \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\assets\"; cmd /c \"dir /x `\"$path`\"\" 2>&1)",
-      "Bash(start \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\index.html\")"
+      "Bash(start \"C:\\\\Users\\\\mauri\\\\Documents\\\\00 Processo Landing Pages\\\\01 - LP - Projeto Novo\\\\LP - Nayara Ribeiro\\\\index.html\")",
+      "Bash(grep -E \"\\\\.webp$\")"
     ]
   }
 }

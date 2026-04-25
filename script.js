@@ -343,27 +343,80 @@
     });
   }
 
-  /* ---------- Video cards — play overlay ---------- */
-  document.querySelectorAll('.video-card').forEach(card => {
-    const overlay = card.querySelector('.video-card__play');
-    const video   = card.querySelector('video');
-    if (!overlay || !video) return;
+  /* ---------- Video Playlist & Control ---------- */
+  const setupVideoPlaylist = (videoId, btnId, playlist = null) => {
+    const video = document.getElementById(videoId);
+    const btn = document.getElementById(btnId);
+    if (!video || !btn) return;
 
-    const activate = () => {
-      overlay.style.display = 'none';
+    let playlistIndex = 0;
+
+    const handlePlay = () => {
+      btn.style.display = 'none';
       video.controls = true;
       video.play();
     };
 
-    overlay.addEventListener('click', activate);
-    overlay.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    btn.addEventListener('click', handlePlay);
+    btn.addEventListener('keydown', e => { 
+      if (e.key === 'Enter' || e.key === ' ') { 
+        e.preventDefault(); 
+        handlePlay(); 
+      } 
+    });
+
+    if (playlist && playlist.length > 0) {
+      video.addEventListener('ended', () => {
+        playlistIndex = (playlistIndex + 1) % playlist.length;
+        video.src = playlist[playlistIndex];
+        video.play();
+      });
+    }
 
     video.addEventListener('pause', () => {
-      if (video.ended || video.paused) {
-        overlay.style.display = '';
+      if (!video.ended && !video.seeking) {
+        btn.style.display = '';
         video.controls = false;
       }
     });
+  };
+
+  setupVideoPlaylist('officeVideo', 'officePlayBtn');
+  setupVideoPlaylist('rpvVideo', 'rpvPlayBtn', [
+    'https://assets.cdn.filesafe.space/7hzaWcGgawCV1WudlwA7/media/69ec14cb9a82ea51cf82d9b6.mp4',
+    'https://assets.cdn.filesafe.space/7hzaWcGgawCV1WudlwA7/media/69ec14cb9fe87a9994c6a009.mp4'
+  ]);
+
+  /* ---------- Mobile Drawer ---------- */
+  const drawer = document.getElementById('mobileDrawer');
+  const drawerOverlay = document.getElementById('mobileDrawerOverlay');
+  const burger = document.querySelector('.nav__burger');
+  const drawerClose = document.querySelector('.mobile-drawer__close');
+
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('is-open');
+    if (drawerOverlay) drawerOverlay.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (drawerOverlay) drawerOverlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('drawer-open');
+  }
+
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('is-open');
+    if (drawerOverlay) drawerOverlay.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (drawerOverlay) drawerOverlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('drawer-open');
+  }
+
+  if (burger) burger.addEventListener('click', openDrawer);
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+  document.querySelectorAll('.mobile-drawer__links a').forEach(a => {
+    a.addEventListener('click', () => closeDrawer());
   });
 
 })();
