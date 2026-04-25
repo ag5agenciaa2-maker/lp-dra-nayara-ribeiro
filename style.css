@@ -4200,6 +4200,12 @@ section {
     column-gap: 0;
   }
 
+  .services__footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
   .gallery__grid {
     grid-template-columns: repeat(6, 1fr);
   }
