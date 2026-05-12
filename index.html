@@ -11,7 +11,7 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <!-- LCP fix: preload da imagem hero com prioridade alta -->
-<link rel="preload" as="image" href="assets/nayara-ribeiro-advogada-livros-direito.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/nayara-ribeiro-advogada-livros-direito.webp" type="image/webp" fetchpriority="high" imagesrcset="assets/mobile/nayara-ribeiro-advogada-livros-direito.webp 600w, assets/tablet/nayara-ribeiro-advogada-livros-direito.webp 900w, assets/nayara-ribeiro-advogada-livros-direito.webp 1200w" imagesizes="(max-width: 640px) 100vw, 50vw">
 <!-- Preload do CSS crítico para evitar FOUC -->
 <link rel="preload" href="style.css" as="style">
 <link rel="stylesheet" href="style.css">
@@ -313,6 +313,7 @@
   ]
 }
 </script>
+<style>html{scroll-behavior:smooth}body{font-family:'DM Sans',system-ui,sans-serif;margin:0;padding:0;background:#FAF7F4;color:#1C1007}img{max-width:100%;height:auto;display:block}</style>
 </head>
 <body>
 
@@ -321,7 +322,7 @@
   <a href="#top" class="nav__logo" aria-label="NR Advocacia">
     <picture class="nav__logo-img">
       <source srcset="assets/logo-nr-advocacia-mobile.webp" media="(max-width: 720px)">
-      <img src="assets/logo-nr-advocacia-desktop.webp" alt="NR Advocacia — Nayara Ribeiro" width="180" height="42">
+      <img src="assets/logo-nr-advocacia-desktop.webp" alt="NR Advocacia — Nayara Ribeiro" width="180" height="42" srcset="assets/mobile/logo-nr-advocacia-desktop.webp 150w, assets/tablet/logo-nr-advocacia-desktop.webp 250w, assets/logo-nr-advocacia-desktop.webp 400w" sizes="180px">
     </picture>
     <span class="nav__mark nav__mark--fallback">NR</span>
     <span class="nav__wordmark nav__wordmark--fallback">
@@ -376,7 +377,7 @@
 
   <div class="hero__right">
     <div class="hero__image-wrap">
-      <img class="hero__image" src="assets/nayara-ribeiro-advogada-livros-direito.webp" alt="Dra. Nayara Ribeiro debruçada sobre planta imobiliária, com livros de Direito Imobiliário ao fundo, olhando para a câmera com autoridade e acolhimento" width="900" height="1600" fetchpriority="high">
+      <img class="hero__image" src="assets/nayara-ribeiro-advogada-livros-direito.webp" alt="Dra. Nayara Ribeiro debruçada sobre planta imobiliária, com livros de Direito Imobiliário ao fundo, olhando para a câmera com autoridade e acolhimento" width="900" height="1600" fetchpriority="high" srcset="assets/mobile/nayara-ribeiro-advogada-livros-direito.webp 600w, assets/tablet/nayara-ribeiro-advogada-livros-direito.webp 900w, assets/nayara-ribeiro-advogada-livros-direito.webp 1200w" sizes="(max-width: 640px) 100vw, 50vw">
       <div class="hero__diagonal"></div>
     </div>
   </div>
@@ -442,7 +443,7 @@
       <!-- Card Dor -->
       <div class="impact-card impact-card--dor reveal">
         <div class="impact-card__image">
-          <img src="assets/nayara-ribeiro-dor-documentos.png" alt="Documentos imobiliários antigos e desorganizados representando problemas jurídicos" width="600" height="400" loading="lazy">
+          <img src="assets/nayara-ribeiro-dor-documentos.webp" alt="Documentos imobiliários antigos e desorganizados representando problemas jurídicos" width="600" height="400" loading="lazy" srcset="assets/mobile/nayara-ribeiro-dor-documentos.webp 400w, assets/tablet/nayara-ribeiro-dor-documentos.webp 600w, assets/nayara-ribeiro-dor-documentos.webp 1200w" sizes="(max-width: 640px) 100vw, 600px">
         </div>
         <div class="impact-card__content">
           <h3 class="impact-card__title">O Problema Atual</h3>
@@ -468,7 +469,7 @@
       <!-- Card Solução -->
       <div class="impact-card impact-card--solucao reveal">
         <div class="impact-card__image">
-          <img src="assets/nayara-ribeiro-solucao-escritura.png" alt="Escritura organizada e chaves representando a resolução dos problemas jurídicos" width="600" height="400" loading="lazy">
+          <img src="assets/nayara-ribeiro-solucao-escritura.webp" alt="Escritura organizada e chaves representando a resolução dos problemas jurídicos" width="600" height="400" loading="lazy" srcset="assets/mobile/nayara-ribeiro-solucao-escritura.webp 400w, assets/tablet/nayara-ribeiro-solucao-escritura.webp 600w, assets/nayara-ribeiro-solucao-escritura.webp 1200w" sizes="(max-width: 640px) 100vw, 600px">
         </div>
         <div class="impact-card__content">
           <h3 class="impact-card__title">A Solução Definitiva</h3>
@@ -567,7 +568,7 @@
     <div class="about__grid">
       <div class="about__visual-col">
         <div class="about__portrait-wrap reveal">
-          <img src="assets/nayara-ribeiro-advogada-retrato-preto-branco.webp" alt="Dra. Nayara Ribeiro — Fundadora" class="about__portrait-img" width="1066" height="1600">
+          <img src="assets/nayara-ribeiro-advogada-retrato-preto-branco.webp" alt="Dra. Nayara Ribeiro — Fundadora" class="about__portrait-img" width="1066" height="1600" srcset="assets/mobile/nayara-ribeiro-advogada-retrato-preto-branco.webp 500w, assets/tablet/nayara-ribeiro-advogada-retrato-preto-branco.webp 800w, assets/nayara-ribeiro-advogada-retrato-preto-branco.webp 1200w" sizes="(max-width: 640px) 90vw, 45vw" loading="lazy">
           <div class="about__portrait-tag">
             <span>Nayara Ribeiro</span>
             <span>OAB · RJ 202.456</span>
@@ -576,11 +577,11 @@
         
         <!-- Galeria de 5 fotos integrada -->
         <div class="about__gallery-strip reveal">
-          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-analisando-planta.webp" alt="Análise de Documentos" width="1080" height="717"></div>
-          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-atendimento-cliente.webp" alt="Atendimento" width="1080" height="719"></div>
-          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-certificados.webp" alt="Especializações" width="900" height="1600"></div>
-          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-xicara-cafe-1.webp" alt="Ambiente" width="1215" height="2160"></div>
-          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-livros-direito.webp" alt="Conhecimento" width="900" height="1600"></div>
+          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-analisando-planta.webp" alt="Análise de Documentos" width="1080" height="717" srcset="assets/mobile/nayara-ribeiro-advogada-analisando-planta.webp 200w, assets/tablet/nayara-ribeiro-advogada-analisando-planta.webp 350w, assets/nayara-ribeiro-advogada-analisando-planta.webp 800w" sizes="(max-width: 640px) 20vw, 120px" loading="lazy"></div>
+          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-atendimento-cliente.webp" alt="Atendimento" width="1080" height="719" srcset="assets/mobile/nayara-ribeiro-advogada-atendimento-cliente.webp 200w, assets/tablet/nayara-ribeiro-advogada-atendimento-cliente.webp 350w, assets/nayara-ribeiro-advogada-atendimento-cliente.webp 800w" sizes="(max-width: 640px) 20vw, 120px" loading="lazy"></div>
+          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-certificados.webp" alt="Especializações" width="900" height="1600" srcset="assets/mobile/nayara-ribeiro-advogada-certificados.webp 200w, assets/tablet/nayara-ribeiro-advogada-certificados.webp 350w, assets/nayara-ribeiro-advogada-certificados.webp 800w" sizes="(max-width: 640px) 20vw, 120px" loading="lazy"></div>
+          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-xicara-cafe-1.webp" alt="Ambiente" width="1215" height="2160" srcset="assets/mobile/nayara-ribeiro-advogada-xicara-cafe-1.webp 200w, assets/tablet/nayara-ribeiro-advogada-xicara-cafe-1.webp 350w, assets/nayara-ribeiro-advogada-xicara-cafe-1.webp 800w" sizes="(max-width: 640px) 20vw, 120px" loading="lazy"></div>
+          <div class="gallery-strip__item"><img src="assets/nayara-ribeiro-advogada-livros-direito.webp" alt="Conhecimento" width="900" height="1600" srcset="assets/mobile/nayara-ribeiro-advogada-livros-direito.webp 600w, assets/tablet/nayara-ribeiro-advogada-livros-direito.webp 900w, assets/nayara-ribeiro-advogada-livros-direito.webp 1200w" sizes="(max-width: 640px) 100vw, 50vw"></div>
         </div>
       </div>
 
@@ -688,7 +689,7 @@
 
       <div class="recognition-premium__grid">
         <div class="recognition-premium__main-image reveal">
-          <img src="assets/nayara-ribeiro-escadaria-camara-municipal-mocao.webp" alt="Dra. Nayara Ribeiro na escadaria histórica da Câmara Municipal do Rio de Janeiro segurando sua Moção de Reconhecimento" loading="lazy" width="3120" height="4160">
+          <img src="assets/nayara-ribeiro-escadaria-camara-municipal-mocao.webp" alt="Dra. Nayara Ribeiro na escadaria histórica da Câmara Municipal do Rio de Janeiro segurando sua Moção de Reconhecimento" loading="lazy" width="3120" height="4160" srcset="assets/mobile/nayara-ribeiro-escadaria-camara-municipal-mocao.webp 700w, assets/tablet/nayara-ribeiro-escadaria-camara-municipal-mocao.webp 1100w, assets/nayara-ribeiro-escadaria-camara-municipal-mocao.webp 1500w" sizes="(max-width: 640px) 100vw, 80vw">
           <div class="recognition-premium__stamp">
             <span>Mérito</span>
             <strong>Institucional</strong>
@@ -708,11 +709,11 @@
 
           <div class="recognition-premium__side-grid reveal">
             <div class="recognition-premium__side-item">
-              <img src="assets/nayara-ribeiro-mocao-camara-municipal-rj.webp" alt="Dra. Nayara no plenário da Câmara Municipal" loading="lazy" width="900" height="1600">
+              <img src="assets/nayara-ribeiro-mocao-camara-municipal-rj.webp" alt="Dra. Nayara no plenário da Câmara Municipal" loading="lazy" width="900" height="1600" srcset="assets/mobile/nayara-ribeiro-mocao-camara-municipal-rj.webp 500w, assets/tablet/nayara-ribeiro-mocao-camara-municipal-rj.webp 800w, assets/nayara-ribeiro-mocao-camara-municipal-rj.webp 1200w" sizes="(max-width: 640px) 45vw, 350px">
               <div class="recognition-premium__side-caption">Sessão Solene</div>
             </div>
             <div class="recognition-premium__side-item">
-              <img src="assets/nayara-ribeiro-certificado-mocao-camara-municipal.webp" alt="Documento oficial da Moção de Reconhecimento" loading="lazy" width="900" height="1600">
+              <img src="assets/nayara-ribeiro-certificado-mocao-camara-municipal.webp" alt="Documento oficial da Moção de Reconhecimento" loading="lazy" width="900" height="1600" srcset="assets/mobile/nayara-ribeiro-certificado-mocao-camara-municipal.webp 500w, assets/tablet/nayara-ribeiro-certificado-mocao-camara-municipal.webp 800w, assets/nayara-ribeiro-certificado-mocao-camara-municipal.webp 1200w" sizes="(max-width: 640px) 45vw, 350px">
               <div class="recognition-premium__side-caption">Moção de Aplausos</div>
             </div>
           </div>
@@ -736,7 +737,7 @@
       <!-- Post 1: Treinamento Imobiliária Lopes -->
       <a class="insta-card reveal" href="https://www.instagram.com/p/DPzzTC6jE6h/" target="_blank" rel="noopener noreferrer" aria-label="Ver post no Instagram">
         <div class="insta-card__media">
-          <img src="assets/nayara-ribeiro-advogada-analisando-planta-mesa.webp" alt="Treinamento corretores Imobiliária Lopes — matrícula e documentação" loading="lazy" width="900" height="1600">
+          <img src="assets/nayara-ribeiro-advogada-analisando-planta-mesa.webp" alt="Treinamento corretores Imobiliária Lopes — matrícula e documentação" loading="lazy" width="900" height="1600" srcset="assets/mobile/nayara-ribeiro-advogada-analisando-planta-mesa.webp 500w, assets/tablet/nayara-ribeiro-advogada-analisando-planta-mesa.webp 800w, assets/nayara-ribeiro-advogada-analisando-planta-mesa.webp 1200w" sizes="(max-width: 640px) 100vw, 600px">
           <div class="insta-card__overlay">
             <svg class="insta-card__ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
           </div>
@@ -753,7 +754,7 @@
       <!-- Post 2: Treinamento Imobiliária Lopes (2ª foto) -->
       <a class="insta-card reveal" href="https://www.instagram.com/p/DQCqs6MidPO/" target="_blank" rel="noopener noreferrer" aria-label="Ver post no Instagram" style="--reveal-delay: 120ms">
         <div class="insta-card__media">
-          <img src="assets/nayara-ribeiro-advogada-reuniao-mesa.webp" alt="Treinamento jurídico para corretores — matrícula e registro" loading="lazy" width="1080" height="1440">
+          <img src="assets/nayara-ribeiro-advogada-reuniao-mesa.webp" alt="Treinamento jurídico para corretores — matrícula e registro" loading="lazy" width="1080" height="1440" srcset="assets/mobile/nayara-ribeiro-advogada-reuniao-mesa.webp 500w, assets/tablet/nayara-ribeiro-advogada-reuniao-mesa.webp 800w, assets/nayara-ribeiro-advogada-reuniao-mesa.webp 1200w" sizes="(max-width: 640px) 100vw, 600px">
           <div class="insta-card__overlay">
             <svg class="insta-card__ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
           </div>
@@ -770,7 +771,7 @@
       <!-- Post 3: Ação Social CRECI — Ouvidoria Itinerante -->
       <a class="insta-card reveal" href="https://www.instagram.com/p/DOJjvgbiTuq/" target="_blank" rel="noopener noreferrer" aria-label="Ver post no Instagram" style="--reveal-delay: 240ms">
         <div class="insta-card__media">
-          <img src="assets/nayara-ribeiro-lider-comissao-usucapiao.webp" alt="Ação Social CRECI — Ouvidoria Itinerante com Comissão de Direito Imobiliário OAB" loading="lazy" width="768" height="768">
+          <img src="assets/nayara-ribeiro-lider-comissao-usucapiao.webp" alt="Ação Social CRECI — Ouvidoria Itinerante com Comissão de Direito Imobiliário OAB" loading="lazy" width="768" height="768" srcset="assets/mobile/nayara-ribeiro-lider-comissao-usucapiao.webp 400w, assets/tablet/nayara-ribeiro-lider-comissao-usucapiao.webp 600w, assets/nayara-ribeiro-lider-comissao-usucapiao.webp 900w" sizes="(max-width: 640px) 100vw, 500px">
           <div class="insta-card__overlay">
             <svg class="insta-card__ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
           </div>
