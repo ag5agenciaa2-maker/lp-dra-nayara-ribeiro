@@ -42,11 +42,24 @@
 
   /* ---------- Nav scroll ---------- */
   const nav = document.getElementById('nav');
+  let navScrolled = false;
+  let navTicking = false;
+  const applyNavScroll = () => {
+    const next = window.scrollY > 40;
+    if (next !== navScrolled) {
+      navScrolled = next;
+      nav.classList.toggle('nav--scrolled', next);
+    }
+    navTicking = false;
+  };
   const onScroll = () => {
-    nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+    if (!navTicking) {
+      navTicking = true;
+      requestAnimationFrame(applyNavScroll);
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  applyNavScroll();
 
   /* ---------- Smooth anchor (with offset) ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
