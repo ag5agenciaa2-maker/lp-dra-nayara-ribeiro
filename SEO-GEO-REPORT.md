@@ -1,4 +1,4 @@
-# Relatório de Auditoria e Otimização SEO / GEO
+﻿# Relatório de Auditoria e Otimização SEO / GEO
 
 **Projeto:** NR Advocacia — Nayara Ribeiro  
 **Data:** 2026-04-24  
@@ -71,7 +71,7 @@
 ### Google & Ferramentas
 
 - [ ] **Google Business Profile (GMB)**: Verificar e otimizar o perfil de "Nayara Ribeiro Advocacia". Garantir que o NAP (Nome, Endereço, Telefone) seja **idêntico** ao do site.
-- [ ] **Google Search Console**: Cadastrar o domínio `www.nayararibeiroadvocacia.ag5agencia.site`, enviar o `sitemap.xml` e solicitar indexação das URLs.
+- [ ] **Google Search Console**: Cadastrar o domínio `www.nayararibeiro.adv.br`, enviar o `sitemap.xml` e solicitar indexação das URLs.
 - [ ] **Google Analytics 4 / Tag Manager**: Inserir o código de rastreamento no `<head>` se houver necessidade de métricas de tráfego.
 - [ ] **PageSpeed Insights**: Testar a URL publicada para validar LCP, INP e CLS reais em ambiente de produção.
 

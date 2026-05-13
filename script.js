@@ -79,6 +79,8 @@
   const VISIBLE_COUNT = 6;
 
   if (servicesList) SERVICES.forEach((s, i) => {
+    const msg = encodeURIComponent(`Olá, vim através do site e tenho interesse no serviço de ${s.name}. Gostaria de mais informações.`);
+    const waUrl = `https://wa.me/5521988116618?text=${msg}`;
     const el = document.createElement('article');
     el.className = 'service' + (i >= VISIBLE_COUNT ? ' service--hidden' : '');
     el.innerHTML = `
@@ -87,10 +89,13 @@
         <h3 class="service__name">${s.name}</h3>
         <p class="service__desc">${s.desc}</p>
       </div>
-      <span class="service__arrow" aria-hidden="true">
+      <a class="service__arrow" href="${waUrl}" target="_blank" rel="noopener noreferrer" aria-label="Falar sobre ${s.name} no WhatsApp">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
+      </a>
     `;
+    el.addEventListener('click', e => {
+      if (!e.target.closest('a')) window.open(waUrl, '_blank', 'noopener,noreferrer');
+    });
     servicesList.appendChild(el);
   });
 
