@@ -437,4 +437,43 @@
     a.addEventListener('click', () => closeDrawer());
   });
 
+  /* ---------- WhatsApp float — container + balão de mensagem ---------- */
+  const whatsappContainer = document.querySelector('.whatsapp-container');
+  const whatsappMessage   = document.getElementById('whatsapp-message');
+  const closeBubbleBtn    = document.querySelector('.close-whatsapp-bubble');
+  const wppTrigger        = document.getElementById('impact');
+
+  if (wppTrigger && whatsappContainer) {
+    const wppObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+          whatsappContainer.classList.add('whatsapp-visible');
+
+          if (whatsappMessage) {
+            // Balão aparece 20s após o botão surgir
+            setTimeout(() => {
+              whatsappMessage.classList.add('show');
+              // Balão some após 15s
+              setTimeout(() => {
+                whatsappMessage.classList.remove('show');
+              }, 15000);
+            }, 20000);
+          }
+
+          wppObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    wppObserver.observe(wppTrigger);
+  }
+
+  if (closeBubbleBtn && whatsappMessage) {
+    closeBubbleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      whatsappMessage.classList.remove('show');
+    });
+  }
+
 })();
