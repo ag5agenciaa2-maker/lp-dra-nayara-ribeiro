@@ -76,55 +76,31 @@
 
   /* ---------- Render Services ---------- */
   const servicesList = document.getElementById('services-list');
-  const VISIBLE_COUNT = 6;
+  const allServicesList = document.getElementById('all-services-list');
 
-  if (servicesList) SERVICES.forEach((s, i) => {
-    const msg = encodeURIComponent(`Olá, vim através do site e tenho interesse no serviço de ${s.name}. Gostaria de mais informações.`);
-    const waUrl = `https://wa.me/5521988116618?text=${msg}`;
-    const el = document.createElement('article');
-    el.className = 'service' + (i >= VISIBLE_COUNT ? ' service--hidden' : '');
-    el.innerHTML = `
-      <span class="service__num">${s.n}</span>
-      <div class="service__body">
-        <h3 class="service__name">${s.name}</h3>
-        <p class="service__desc">${s.desc}</p>
-      </div>
-      <a class="service__arrow" href="${waUrl}" target="_blank" rel="noopener noreferrer" aria-label="Falar sobre ${s.name} no WhatsApp">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    `;
-    el.addEventListener('click', e => {
-      if (!e.target.closest('a')) window.open(waUrl, '_blank', 'noopener,noreferrer');
-    });
-    servicesList.appendChild(el);
-  });
-
-  /* Botão "ver mais / ver menos" */
-  const toggleBtn = document.getElementById('services-toggle');
-  let expanded = false;
-  if (toggleBtn) toggleBtn.addEventListener('click', () => {
-    expanded = !expanded;
-    servicesList.querySelectorAll('.service--hidden').forEach(el => {
-      el.classList.toggle('service--visible', expanded);
-    });
-    toggleBtn.querySelector('.services-toggle__label').textContent = expanded
-      ? 'Ver menos serviços'
-      : `Ver mais ${SERVICES.length - VISIBLE_COUNT} serviços`;
-    toggleBtn.querySelector('.services-toggle__icon').style.transform = expanded
-      ? 'rotate(180deg)'
-      : 'rotate(0deg)';
-
-    /* anima os cards recém-revelados */
-    if (expanded) {
-      servicesList.querySelectorAll('.service--hidden.service--visible').forEach((el, i) => {
-        setTimeout(() => {
-          if (!el.classList.contains('is-visible')) el.classList.add('is-visible');
-        }, i * 80);
-      });
-    }
-  });
-
+  // Renderiza serviços na Home (apenas 4)
   if (servicesList) {
+    SERVICES.slice(0, 4).forEach((s, i) => {
+      const msg = encodeURIComponent(`Olá, vim através do site e tenho interesse no serviço de ${s.name}. Gostaria de mais informações.`);
+      const waUrl = `https://wa.me/5521988116618?text=${msg}`;
+      const el = document.createElement('article');
+      el.className = 'service';
+      el.innerHTML = `
+        <span class="service__num">${s.n}</span>
+        <div class="service__body">
+          <h3 class="service__name">${s.name}</h3>
+          <p class="service__desc">${s.desc}</p>
+        </div>
+        <a class="service__arrow" href="${waUrl}" target="_blank" rel="noopener noreferrer" aria-label="Falar sobre ${s.name} no WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      `;
+      el.addEventListener('click', e => {
+        if (!e.target.closest('a')) window.open(waUrl, '_blank', 'noopener,noreferrer');
+      });
+      servicesList.appendChild(el);
+    });
+
     const serviceObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -134,7 +110,42 @@
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.service:not(.service--hidden)').forEach(s => serviceObserver.observe(s));
+    servicesList.querySelectorAll('.service').forEach(s => serviceObserver.observe(s));
+  }
+
+  // Renderiza todos os serviços na página de serviços
+  if (allServicesList) {
+    SERVICES.forEach((s, i) => {
+      const msg = encodeURIComponent(`Olá, vim através do site e tenho interesse no serviço de ${s.name}. Gostaria de mais informações.`);
+      const waUrl = `https://wa.me/5521988116618?text=${msg}`;
+      const el = document.createElement('article');
+      el.className = 'service';
+      el.innerHTML = `
+        <span class="service__num">${s.n}</span>
+        <div class="service__body">
+          <h3 class="service__name">${s.name}</h3>
+          <p class="service__desc">${s.desc}</p>
+        </div>
+        <a class="service__arrow" href="${waUrl}" target="_blank" rel="noopener noreferrer" aria-label="Falar sobre ${s.name} no WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      `;
+      el.addEventListener('click', e => {
+        if (!e.target.closest('a')) window.open(waUrl, '_blank', 'noopener,noreferrer');
+      });
+      allServicesList.appendChild(el);
+    });
+
+    const allServiceObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = [...allServicesList.children].indexOf(entry.target);
+          setTimeout(() => entry.target.classList.add('is-visible'), idx * 80);
+          allServiceObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    allServicesList.querySelectorAll('.service').forEach(s => allServiceObserver.observe(s));
   }
 
   /* ---------- Render Reviews Carousel ---------- */
