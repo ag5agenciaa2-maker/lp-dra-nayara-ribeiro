@@ -1,6 +1,6 @@
 /**
  * Cookie Banner Universal — Skill Profissional
- * Versão: 2.1.0 (Refinada AG5)
+ * Versão: 3.0.0 (Refinada AG5)
  * Sem dependências externas. Funciona em qualquer site HTML/JS.
  * LGPD (Brasil) / GDPR (Europa) compliant.
  */
@@ -143,6 +143,7 @@
     function acceptAll() {
         state = { necessary: true, functional: true, analytics: true, performance: true, advertising: true, decided: true };
         save(state);
+        syncToggles();
         dispatch(state);
         hideBanner();
         closeModal();
@@ -152,6 +153,7 @@
     function rejectAll() {
         state = { necessary: true, functional: false, analytics: false, performance: false, advertising: false, decided: true };
         save(state);
+        syncToggles();
         dispatch(state);
         hideBanner();
         closeModal();
@@ -162,6 +164,7 @@
         var custom = readToggles();
         state = Object.assign({}, custom, { decided: true });
         save(state);
+        syncToggles();
         dispatch(state);
         hideBanner();
         closeModal();
@@ -228,11 +231,14 @@
         // Botão flutuante
         on('ck-prefs-btn', 'click', openModal);
 
-        // Link no rodapé (Novo padrão AG5)
-        on('ck-prefs-link', 'click', function (e) {
-            e.preventDefault();
-            openModal();
-        });
+        // Links no rodapé (Suporta ck-prefs-link e shared-ck-prefs-link)
+        var footerLink = document.getElementById('ck-prefs-link') || document.getElementById('shared-ck-prefs-link');
+        if (footerLink) {
+            footerLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                openModal();
+            });
+        }
 
         // ESC fecha o modal
         document.addEventListener('keydown', function (e) {
@@ -250,7 +256,7 @@
         var saved = load();
 
         if (saved && saved.decided && !isExpired(saved.timestamp)) {
-            // Usuário já decidiu — aplica preferências e mostra botão flutuante
+            // Usuário já decidiu — aplica preferências e mostra botão flutuante se ativo
             state = Object.assign({}, state, saved);
             dispatch(state);
             if (CONFIG.showFloatingBtn) showFloatingBtn();
